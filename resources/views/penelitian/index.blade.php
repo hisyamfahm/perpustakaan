@@ -49,11 +49,11 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
-                            <th>No</th>
-                            <th>Judul</th>
-                            <th>Tahun</th>
-                            <th>Ketua</th>
-                            <th>Anggota</th>
+                            <th width="3%">No</th>
+                            <th width="25%">Judul</th>
+                            <th width="5%">Tahun</th>
+                            <th width="15%">Ketua</th>
+                            <th width="17%">Anggota</th>
                             <th>
 								<div class="btn-group">
 									<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><a>Bidang
@@ -67,7 +67,8 @@
 									</ul>
 								</div>
 							</th>
-                            <th>Sumber Dana</th>
+                            <!--<th>Sumber Dana</th>-->
+                            <th>Dana Hibah</th>
                             @if(Auth::check() && Auth::user()->role =='admin')
                             <th>Pilihan</th>
                             @endif
@@ -91,7 +92,8 @@
                             @endforeach
                             </td>
                             <td>{{$pe->bidang['Nama']}}</td>
-                            <td>{{$pe->kategori->sumberdana[0]['Nama']}}</td>
+                            <!--<td>{{$pe->kategori->sumberdana[0]['Nama']}}</td>-->
+                            <td>Rp {{number_format($pe->dana,2,",",".")}}</td>
                             @if(Auth::check() && Auth::user()->role =='admin')
                             <td><a href="{{ url('penelitian/'.$pe->id.'/editpenelitian') }}" class="btn btn-warning btn-sm" >Ubah</a></td>
                             <td><a href="{{ url('penelitian/hapus/'.$pe->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Hapus nih ?')">Hapus</a></td>

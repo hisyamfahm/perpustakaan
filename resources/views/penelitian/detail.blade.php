@@ -32,9 +32,9 @@
 								<div>
 									<table class="table">
 										<thead>
-											<tr><th>No</th><th>Judul</th><th>Tahun</th><th>Ketua</th><th>Anggota Penelitian</th>
-											<th>Bidang</th>
-											<th>Kategori</th><th>Laporan</th><th>Proposal</th></tr>
+											<tr><th>No</th><th width="25%">Judul</th><th>Tahun</th><th width="8%">Ketua</th><th width="8%">Anggota Penelitian</th>
+											<th>Klaster</th>
+											<th>Bidang</th><th width="10%">Jumlah Dana</th><th>Sumber Dana</th></tr>
 										</thead>
 										<tbody>
 											<tr>
@@ -59,15 +59,26 @@
 											{{$penelitian->bidang['Nama']}}
 											</td>
 											<td>
-											@if(!empty($penelitian->getLaporan()))
-												<a href="{{$penelitian->getLaporan()}}" class="btn btn-warning">Laporan</a>
-											@else
-												---
-											@endif
+											Rp {{number_format($penelitian->dana,2,",",".")}}
 											</td>
-                            				<td>{{$penelitian->Proposal}}</td></tr>
+                            				<td>{{$penelitian->kategori->sumberdana[0]['Nama']}}</td></tr>
 										</tbody>
 									</table>
+									<!--@if(!empty($penelitian->getLaporan()))
+										<a href="{{$penelitian->getLaporan()}}" class="btn btn-sm">Laporan</a>
+									@else
+										---
+									@endif-->
+									@if(!empty($penelitian->Laporan))
+										<a href="{{$penelitian->Laporan}}" class="btn btn-primary">Laporan</a>
+									@else
+										---
+									@endif
+									@if(!empty($penelitian->Proposal))
+										<a href="{{$penelitian->Proposal}}" class="btn btn-warning">Proposal</a>
+									@else
+										---
+									@endif
 								</div>
 								<div class="panel-heading">
 									<h3 class="panel-title">Publikasi</h3>

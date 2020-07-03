@@ -35,7 +35,7 @@
                         <tr>
                         <td>{{$pk->id}}</td>
                             <td><a href="{{ url('kategori/'.$pk->id.'/detail') }}">{{$pk->Nama}}</a></td>
-                            <td>{{$pk->JumlahDana}}</td>
+                            <td>Rp. {{number_format($pk->JumlahDana,2,",",".")}}</td>
                             <td>@foreach($pk->sumberdana as $a)
                             <ul><li>{{$a->Nama}}</li></ul>
                             @endforeach</td>
@@ -76,11 +76,11 @@
                     <div class="modal-body">
                             <form action="{{url('kategori/create') }}" method="POST">
                             {{csrf_field()}}
-                            <div class="form-group">
+                            <!--<div class="form-group">
                                 <label for="exampleInputEmail1">Kode Kategori</label>
                                 <input name="id" type="int" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="No Kategori">
                                 <small id="emailHelp" class="form-text text-muted">Masukan Kode Sumber Dana</small>
-                            </div>
+                            </div>-->
                             
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Kategori</label>
@@ -91,7 +91,7 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Jumlah Dana</label>
                                 <input name="JumlahDana" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Jumlah Dana">
-                                <small id="emailHelp" class="form-text text-muted">Masukan Jumlah Dananya</small>
+                                <small id="emailHelp" class="form-text text-muted">Masukan Jumlah Dana</small>
                             </div>
 
                             <div class="form-group">

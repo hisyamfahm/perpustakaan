@@ -24,8 +24,9 @@ class KategoriController extends Controller
     public function create(Request $request)
     {
         $kategori=\App\Kategori::create($request->all());
-        $kategori->save(); 
-        $kategori->sumberdana()->attach(Input::get('sumberdana')); 
+        $kategori->save();  
+        $kategori->sumberdana()->sync($request->input('sumberdana')); 
+        
         return redirect('/kategori')->with('sukses','Berhasil Diinput');
     }
     public function hapus($id)

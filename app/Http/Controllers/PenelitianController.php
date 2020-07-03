@@ -21,7 +21,7 @@ class PenelitianController extends Controller
             //$data_penelitian=\App\Penelitian::where('Judul','Like','%'.$request->cari. '%')->paginate(10)->appends('cari',request('cari'));
 			$data_penelitian=\App\Penelitian::join('dosen','dosen.id','=','dosene_id')->where('Judul','Like','%'.$request->cari. '%')->orWhere('dosen.Nama','Like','%'.$request->cari. '%')->orWhere('Tahun','=',$request->cari)->paginate(10)->appends('cari',request('cari'));
         }else{
-            $data_penelitian=\App\Penelitian::latest('id')->paginate(10);
+            $data_penelitian=\App\Penelitian::latest('Tahun')->paginate(10);
 		}
         $dosen=\App\Dosen::orderBy('Nama')->get();
         $dosene=\App\Dosen::orderBy('Nama')->get();
@@ -105,6 +105,7 @@ class PenelitianController extends Controller
             'id'=>$request->id,
             'Judul'=>$request->Judul,
             'Tahun'=>$request->Tahun,
+            'dana'=>$request->Dana,
             'Laporan'=>$request->Laporan,
             'Proposal'=>$request->Proposal,
             'bidang_id'=>$request->bidang_id,

@@ -24,11 +24,11 @@
                                 <div class="panel-body">
                                 <form action="{{ url('penelitian/create') }}" method="POST" enctype="multipart/form-data">
                                     {{csrf_field()}}
-                                    <div class="form-group">
+                                    <!--<div class="form-group">
                                         <label for="exampleInputEmail1">No</label>
                                         <input name="id" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="No Terserah,Bisa Dikosongi">
                                         <small id="emailHelp" class="form-text text-muted">Masukan Nomornya</small>
-                                    </div>
+                                    </div>-->
                                     
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Judul</label>
@@ -48,7 +48,7 @@
                                     <div class="form-group">
                                                 <label for="exampleInputEmail1">Anggota</label>
                                                 <div class="dropdown">
-                                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><button>Pilih Yang Menjadi Anggota<b class="caret"></b></button></a>
+                                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><button>Pilih Anggota Dosen<b class="caret"></b></button></a>
                                                     <ul class="dropdown-menu">
                                                     <div style="OVERFLOW-Y:scroll; WIDTH:600px; HEIGHT:300px">
                                                     @foreach ($dosen as $p)
@@ -59,6 +59,20 @@
                                                                 </label>
                                                         </li>
                                                     @endforeach
+                                                    </div>
+                                                    </ul>
+                                                </div>
+                                                <small id="emailHelp" class="form-text text-muted">Pilih dosen yang menjadi anggota (jika ada)</small>
+                                                <br>
+                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#dosenModal">
+                                                        Tambah Dosen
+                                                </button>
+                                                <small id="emailHelp" class="form-text text-muted">jika nama dosen tidak tercantum dalam list</small>
+                                                <br><hr>
+                                                <div class="dropdown">
+                                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><button>Pilih Anggota Mahasiswa<b class="caret"></b></button></a>
+                                                    <ul class="dropdown-menu">
+                                                    <div style="OVERFLOW-Y:scroll; WIDTH:600px; HEIGHT:300px">
                                                     @foreach ($mahasiswa as $yu)
                                                         <li id="mahasiswa">
                                                         <input type="checkbox" name="mahasiswa[]" id="mahasiswa" value="{{$yu->id}}">
@@ -70,15 +84,14 @@
                                                     </div>
                                                     </ul>
                                                 </div>
-                                                <small id="emailHelp" class="form-text text-muted">Pilih Anggota</small>
+                                                <small id="emailHelp" class="form-text text-muted">Pilih mahasiswa yang menjadi anggota (jika ada)</small>
                                                 <br>
                                                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mahasiswaModal">
                                                         Tambah Mahasiswa
                                                 </button>
-                                                <br></br>
-                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#dosenModal">
-                                                        Tambah Dosen
-                                                </button>
+                                                <small id="emailHelp" class="form-text text-muted">jika nama mahasiswa tidak tercantum dalam list</small>
+                                                
+                                                
                                     </div>
             
                                     <div class="form-group">
@@ -102,6 +115,7 @@
                                     <div class="form-group">
                                     <label for="bidang">Bidang</label>
                                         <select class="form-control" id="bidang" name="bidang_id">
+                                            <option value="7">Pilih Bidang ...</option>
                                         @foreach($bidang as $ce)
                                         <option value="{{$ce->id}}">{{$ce->Nama}}</option>
                                         @endforeach
@@ -111,6 +125,7 @@
                                     <div class="form-group">
                                     <label for="kategori">Kategori</label>
                                         <select class="form-control" id="kategori" name="kategori_id">
+                                            <option value="19">Pilih Kategori ...</option>
                                         @foreach($kategori as $ke)
                                         <option value="{{$ke->id}}">{{$ke->Nama}}</option>
                                         @endforeach

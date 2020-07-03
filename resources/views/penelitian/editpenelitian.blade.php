@@ -81,6 +81,12 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="exampleInputEmail1">Realisasi Dana</label>
+                                <input name="Dana" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$penelitian->dana}}">
+                                <small id="emailHelp" class="form-text text-muted">Masukan Realisasi Dana Hibah</small>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">Laporan</label>
                                 <input name="Laporan" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$penelitian->Laporan}}">
                                 <small id="emailHelp" class="form-text text-muted">Masukan Laporan</small>
