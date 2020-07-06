@@ -15,7 +15,7 @@
                         <h3 class="panel-title">Data PKL dan KKM</h3>
                         <div class="right">
                         @if(Auth::check() && Auth::user())
-                        <button type="button" class="btn"><a href="/pklkkm/createpklkkm" class="btn btn-success">Tambah Data PKL atau KKm</a></button>
+                        <button type="button" class="btn"><a href="{{ url('pklkkm/createpklkkm')}}" class="btn btn-success">Tambah Data PKL atau KKm</a></button>
                         @endif
                         </div>  
                     </div> 
