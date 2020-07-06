@@ -60,6 +60,7 @@
                             <th>
 								<center>Info Buku</center>
                             </th>
+                            <th>E-book</th>
                             @if(Auth::check() && Auth::user()->role =='admin')
                             <th><div class="center">Opsi</div></th>
                             @endif 
@@ -73,7 +74,7 @@
                         <td><img src="{{$buku->getFoto()}}" class="img-square" alt="Avatar" width="100px" height="100px"></td>
                             <td>
                             <div class="profile-detail">
-										<ul class="list-unstyled">
+								        <ul class="list-unstyled">
                                         <li><span class="col-md-2">Penulis </span><ul class="col-md-10">: @foreach($buku->penulis as $p)
                                         <a href="{{route('penulisbuku',$p->id)}}"> {{$p->NamaBelakang}},
                                          {{$p->NamaDepan}}</a> | @endforeach</ul>
@@ -92,6 +93,7 @@
                             </p>
                             <a href="{{ url('buku/'.$buku->id.'/hapus') }}" class="btn btn-danger btn-sm" enctype="multipart/form-data" onclick="return confirm('Hapus nih ?')">Hapus</a></td>
                             @endif
+                            <td><a href="{{ url($buku->ebook) }}" class="btn btn-info btn-sm" >Lihat Buku</a></td>
                         </tr>
                         @endforeach
                         </tbody>

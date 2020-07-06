@@ -13,7 +13,7 @@ class PklkkmController extends Controller
     public function index(Request $request)
     {
         if($request->has('cari')){
-            $data_pklkkm=\App\Pklkkm::where('Judul','Like','%'.$request->cari. '%')->paginate(10)->appends('cari',request('cari'));
+            $data_pklkkm=\App\Pklkkm::join('mitra','mitra.id','=','IDMitra')->join('dosen','dosen.id','=','KodeDosen')->where('Judul','Like','%'.$request->cari. '%')->orWhere('mitra.Nama','Like','%' .$request->cari. '%')->orWhere('dosen.Nama','Like','%' .$request->cari. '%')->orWhere('Tahun','=',$request->cari)->paginate(10)->appends('cari',request('cari'));
         }else{
             $data_pklkkm=\App\Pklkkm::latest('id')->paginate(10);
         }

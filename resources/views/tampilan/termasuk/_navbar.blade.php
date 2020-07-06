@@ -36,7 +36,7 @@
 						<button><a class="btn btn-success btn-sm" href="{{ url('beranda') }}" title="Beranda"><i class="fa fa-home"></i> <span>Beranda</span></a></button>
 						<button><a class="btn btn-info btn-sm" href="{{ url('buku') }}" title="buku"><i class="fa fa-book"></i> <span>Buku</span></a></button>
 						<button><a class="btn btn-warning btn-sm" href="{{ url('penelitian') }}" title="penelitian"><i class="fa fa-file"></i> <span>Penelitian</span></a></button>
-						<button><a class="btn btn-danger btn-sm" href="{{ url('skripsi') }}" title="Skripsi"><i class="fa fa-paperclip"></i> <span>Skrispsi</span></a></button>
+						<button><a class="btn btn-danger btn-sm" href="{{ url('skripsi') }}" title="Skripsi"><i class="fa fa-paperclip"></i> <span>Skripsi</span></a></button>
 						<button type="button" class="dropdown">
 						<small class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><b class="btn btn-deffault btn-sm"><i class="glyphicon glyphicon-chevron-down"></i> Berkas</b></small>
 								<ul class="dropdown-menu">

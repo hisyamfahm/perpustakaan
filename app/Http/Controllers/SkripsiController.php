@@ -12,7 +12,7 @@ class SkripsiController extends Controller
     public function index(Request $request)
     {
         if($request->has('cari')){
-            $data_skripsi=\App\Skripsi::where('Judul','Like','%'.$request->cari. '%')->paginate(10)->appends('cari',request('cari'));
+            $data_skripsi=\App\Skripsi::join('mahasiswa','mahasiswa.id','=','mahasiswa_id')->join('bidang','bidang.id','=','bidang_id')->where('Judul','Like','%'.$request->cari. '%')->orWhere('mahasiswa.Nama','Like','%' .$request->cari. '%')->orWhere('Bidang.Nama','Like','%' .$request->cari. '%')->orWhere('Tahun','=',$request->cari)->paginate(10)->appends('cari',request('cari'));
         }else{
             $data_skripsi=\App\Skripsi::latest('id')->paginate(10);
         }

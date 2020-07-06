@@ -10,7 +10,7 @@
                                         <h3 class="panel-title">Ubah Data Buku</h3>
                                 </div>
                                 <div class="panel-body">
-                                <form action="/buku/{{$buku->id}}/goeditbuku" method="POST" enctype="multipart/form-data">
+                                <form action="{{ url('buku/'.$buku->id.'/goeditbuku') }}" method="POST" enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 <!-- panelnya-->                                    
                                     <div class="form-group">
@@ -30,7 +30,7 @@
                                                     <?php $checked = in_array($p->id, $checkeds) ? true : false; ?>
                                                         <label>
                                                         {{ Form::checkbox('penulis[]', $p->id, $checked) }}
-                                                        <span>{{ $p->NamaDepan }}</span>
+                                                        <span>{{ $p->NamaDepan }}{{ $p->NamaBelakang }}</span>
                                                         </label>
                                                 </li>
                                             @endforeach

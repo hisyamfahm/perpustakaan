@@ -31,8 +31,10 @@
 						<thead>
 							<tr>
                             <th>No</th>
+                            <th>Nama Penulis</th>
                             <th>Nama Depan</th>
                             <th>Nama Belakang</th>
+                            <th>Laman Penulis</th>
                             </tr>
 						</thead>
 						<tbody>
@@ -40,12 +42,14 @@
                         @foreach($data_penulis as $pk)
                         <tr>
                         <td>{{$pk->id}}</td>
+                        <td><a href="{{url('buku/penulis/'.$pk->id)}}">{{$pk->NamaDepan}} {{$pk->NamaBelakang}}</a></td>
                             <td>{{$pk->NamaDepan}}</td>
                             <td>{{$pk->NamaBelakang}}</td>
                             @if(Auth::check() && Auth::user()->role =='admin')
                             <td><a href="{{ url('penulis/'.$pk->id.'/editpenulis') }}" class="btn btn-warning btn-sm" >Ubah</a></td>
                             <td><a href="{{ url('penulis/'.$pk->id.'/hapus') }}" class="btn btn-danger btn-sm" onclick="return confirm('Hapus nih ?')">Hapus</a></td>
                             @endif
+                            <td><a href="{{ url($pk->Informasi) }}" class="btn btn-info btn-sm" >Kunjungi</a></td>
                         </tr>
                         @endforeach
                         </tbody>

@@ -15,11 +15,18 @@
                         <h3 class="panel-title">Data PKL dan KKM</h3>
                         <div class="right">
                         @if(Auth::check() && Auth::user())
-                        <button type="button" class="btn"><a href="/pklkkm/createpklkkm" class="btn btn-success">Tambah Data PKL atau KKm</a></button>
+                        <button type="button" class="btn"><a href="pklkkm/createpklkkm" class="btn btn-success">Tambah Data PKL atau KKm</a></button>
                         @endif
                         </div>  
                     </div> 
 				<div class="panel-body">
+                    <form action="{{ url('pklkkm') }}" method="get">
+                    <div class="input-group">
+                                                <input class="form-control" name="cari" type="text" placeholder="Tulis Judul">
+                                                <span  class="input-group-btn"><button class="btn btn-primary">Cari</button></span> 
+                    </div>
+                </form>
+                <br>
 					<table class="table table-hover">
 						<thead>
 							<tr>

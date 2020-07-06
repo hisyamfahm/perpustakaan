@@ -14,7 +14,7 @@ class PenulisController extends Controller
         if($request->has('cari')){
             $data_penulis=\App\Penulis::where('NamaDepan','Like','%'.$request->cari. '%')->paginate(10)->appends('cari',request('cari'));
         }else{
-            $data_penulis=\App\Penulis::latest('id')->paginate(10);
+            $data_penulis=\App\Penulis::orderBy('id')->paginate(10);
         }
     
         return view('penulis.index',['data_penulis'=> $data_penulis]);

@@ -13,7 +13,7 @@
     			<!-- TABLE HOVER -->
     			<div class="panel">
 				    <div class="panel-heading">
-                        <h3 class="panel-title">Data Skrispsi</h3>
+                        <h3 class="panel-title">Data Skripsi</h3>
                         
                         <div class="right">
                         @if(Auth::check() && Auth::user())
@@ -34,7 +34,7 @@
                         </div>  
                     </div> 
     				<div class="panel-body">
-                        <form action="/skripsi" method="get">
+                        <form action="skripsi" method="get">
                             <div class="input-group">
                                 <input class="form-control" name="cari" type="text" placeholder="Tulis Judul">
                                 <span  class="input-group-btn">
