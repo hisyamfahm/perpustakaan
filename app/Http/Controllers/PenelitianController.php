@@ -18,10 +18,13 @@ class PenelitianController extends Controller
     public function index(Request $request)
     {
         if($request->has('cari')){
-            //$data_penelitian=\App\Penelitian::where('Judul','Like','%'.$request->cari. '%')->paginate(10)->appends('cari',request('cari'));
-			$data_penelitian=\App\Penelitian::join('dosen','dosen.id','=','dosene_id')->where('Judul','Like','%'.$request->cari. '%')->orWhere('dosen.Nama','Like','%'.$request->cari. '%')->orWhere('Tahun','=',$request->cari)->paginate(10)->appends('cari',request('cari'));
+            //$data_penelitian=\App\Penelitian::where('Judul','Like','%'.$request->cari. '%')->orWhere('dosen.Nama','Like','%'.$request->cari.'%')->paginate(10)->appends('cari',request('cari'));
+            //$id_d = DB::select(DB::raw('select distinct id from dosen where nama like "%sri%"'));
+            //$data=DB::table('penelitian')->select('penelitian.id','penelitian.judul','dosen.nama')->join('dosen','dosen.id','=','dosene_id')->where('dosene_id','=',$id_d[0]->id)->paginate(10)->appends('cari',request('cari'));
+
+			$data_penelitian=\App\Penelitian::select('*','penelitian.id as id')->join('dosen','dosen.id','=','dosene_id')->where('Judul','Like','%'.$request->cari.'%')->orWhere('Tahun','=',$request->cari)->orWhere('dosen.Nama','Like','%'.$request->cari.'%')->paginate(10)->appends('cari',request('cari'));
         }else{
-            $data_penelitian=\App\Penelitian::latest('Tahun')->paginate(10);
+            $data_penelitian=\App\Penelitian::latest('ID')->paginate(10);
 		}
         $dosen=\App\Dosen::orderBy('Nama')->get();
         $dosene=\App\Dosen::orderBy('Nama')->get();
