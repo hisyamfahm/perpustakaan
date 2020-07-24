@@ -10,7 +10,7 @@
                                         <h3 class="panel-title">Ubah Data Buku</h3>
                                 </div>
                                 <div class="panel-body">
-                                <form action="/buku/{{$buku->id}}/goeditbuku" method="POST" enctype="multipart/form-data">
+                                <form action="{{ url('buku/'.$buku->id.'/goeditbuku') }}" method="POST" enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 <!-- panelnya-->                                    
                                     <div class="form-group">
@@ -30,7 +30,7 @@
                                                     <?php $checked = in_array($p->id, $checkeds) ? true : false; ?>
                                                         <label>
                                                         {{ Form::checkbox('penulis[]', $p->id, $checked) }}
-                                                        <span>{{ $p->NamaDepan }}</span>
+                                                        <span>{{ $p->NamaDepan }}{{$p->NamaBelakang}}</span>
                                                         </label>
                                                 </li>
                                             @endforeach
@@ -50,6 +50,12 @@
                                         <label for="exampleInputEmail1">Tahun</label>
                                         <input name="Tahun" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  value="{{ $buku->Tahun }}">
                                         <small id="emailHelp" class="form-text text-muted">Masukan Tahun Terbit</small>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">ISBN</label>
+                                        <input name="ISBN" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  value="{{ $buku->ISBN }}">
+                                        <small id="emailHelp" class="form-text text-muted">Masukan ISBN Buku</small>
                                     </div>
 
                                     <div class="form-group">

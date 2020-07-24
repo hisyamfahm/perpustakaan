@@ -13,7 +13,7 @@
                                 </div>
                                 <div class="panel-body">
                                 <!--Form-->
-                                <form action="/buku/create" method="POST" name="penulis" enctype="multipart/form-data">
+                                <form action="{{ url('buku/createbuku') }}" method="post" name="penulis" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div id="contentpenulis" class="form-group">
                             <label for="exampleInputEmail1">Penulis</label>
@@ -55,6 +55,12 @@
                                 <label for="exampleInputEmail1">Tahun</label>
                                 <input name="Tahun" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tahun">
                                 <small id="emailHelp" class="form-text text-muted">Masukan Tahun Terbit</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputISBN">ISBN</label>
+                                <input name="ISBN" type="text" class="form-control" id="exampleInputISBN" aria-describedby="emailHelp" placeholder="ISBN">
+                                <small id="emailHelp" class="form-text text-muted">Masukan ISBN Buku</small>
                             </div>
 
                             <div class="form-group">
