@@ -36,6 +36,9 @@
                             <th>Tahun</th>
                             <th>Deskripsi</th>
                             <th>Jenis Publikasi</th>
+                            @if(Auth::check() && Auth::user())
+                            <th><div class="center">Link Download</div></th>
+                            @endif
                             </tr>
 						</thead>
 						<tbody>
@@ -56,6 +59,9 @@
                             @if(Auth::check() && Auth::user()->role =='admin')
                             <td><a href="{{ url('publikasi/'.$pe->id.'/editpublikasi') }}" class="btn btn-warning btn-sm" >Ubah</a></td>
                             <td><a href="{{ url('publikasi/hapus/'.$pe->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Hapus nih ?')">Hapus</a></td>
+                            @endif
+                            @if(Auth::check() && Auth::user())
+                            <td><a href="{{ url($pe->link_download) }}" class="btn btn-info btn-sm" >Download</a></td>
                             @endif
                         </tr>
                         @endforeach
